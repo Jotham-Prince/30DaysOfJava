@@ -2,23 +2,25 @@ import java.util.Scanner;
 
 public class MySweetProgram {
     public static void main(String[] args) {
-        System.out.print("Name yourself: ");
-        Scanner scan = new Scanner(System.in);
-        String s = scan.nextLine();
+        System.out.print("What size of the Array do you want: ");
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] grades = new int[size];
 
-        if (s.equals("Jotham Prince")) {
-            System.out.println("Welcome, Sir Jotham");
+        System.out.println("Enter " + size + " grades (Press Enter after each grade);");
 
-            for (int i = 1; i <= 10; i++) {
-                System.out.println("i = " + i);
-            }
+        for (int i = 0; i < grades.length; i++) {
+            grades[i] = sc.nextInt();
+        }
 
-        } else {
-            System.out.println(s + " you're not welcome here!");
+        System.out.println("\nThe following are the grades you entered;");
+
+        for (int i = 0; i < grades.length; i++) {
+            System.out.println(grades[i]);
         }
 
         // Close the scanner
-        scan.close();
+        sc.close();
     }
 
 }
