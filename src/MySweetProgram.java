@@ -1,26 +1,24 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.io.*;
 
 public class MySweetProgram {
-    public static void main(String[] args) {
-        System.out.print("What size of the Array do you want: ");
-        Scanner sc = new Scanner(System.in);
-        int size = sc.nextInt();
-        int[] grades = new int[size];
+    public static void main(String[] args) throws Exception {
+        System.out.println("Fetching students from \"students.txt\"...");
+        Scanner sc = new Scanner(new File("students.txt"));
+        List<String> students = new ArrayList<String>();
 
-        System.out.println("Enter " + size + " grades (Press Enter after each grade);");
-
-        for (int i = 0; i < grades.length; i++) {
-            grades[i] = sc.nextInt();
+        while (sc.hasNextLine()) {
+            students.add(sc.nextLine());
         }
-
-        System.out.println("\nThe following are the grades you entered;");
-
-        for (int i = 0; i < grades.length; i++) {
-            System.out.println(grades[i]);
-        }
-
         // Close the scanner
         sc.close();
+
+        System.out.println("The following are the students in your class;");
+        for (int i = 0; i < students.size(); i++) {
+            System.out.println(students.get(i));
+        }
     }
 
 }
